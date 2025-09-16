@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Куди піти</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Куди піти</h1>
+        <nav>
+            <a href="{% url 'index' %}">Головна</a> |
+            <a href="{% url 'places_list' %}">Список місць</a> |
+            <a href="{% url 'add_place' %}">Додати місце</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© Виконав: Рожелюк Олександр</p>
+    </footer>
+</body>
+</html>

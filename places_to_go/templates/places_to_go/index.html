@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Вітаємо! Тут ви завжди знатимете куди піти!</h2>
+<p>Зберігайте свої улюблені місця для відпочинку, прогулянок чи розваг.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Куди піти сьогодні?</button>
+</form>
+
+{% if chosen_place %}
+    <h3>Сьогоднішня порада:</h3>
+    {% include "places_to_go/_place_preview.html" with place=chosen_place %}
+{% endif %}
+{% endblock %}
