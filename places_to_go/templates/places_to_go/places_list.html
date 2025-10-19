@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Список улюблених місць</h2>
+
+{% for place in places %}
+    {% include "places_to_go/_place_preview.html" with place=place %}
+{% empty %}
+    <p>Поки немає жодного місця.</p>
+{% endfor %}
+{% endblock %}

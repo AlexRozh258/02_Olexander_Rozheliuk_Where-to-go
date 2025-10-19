@@ -1,0 +1,23 @@
+{% load static %}
+<div class="place-preview">
+    <img src="{% static 'sticker.jpg' %}" alt="Place image" class="preview-img">
+
+    <h3><a href="{% url 'place_detail' place.id %}">{{ place.title }}</a></h3>
+    <p>{{ place.description|truncatewords:12 }}</p>
+    <p><strong>Тип:</strong> {{ place.place_type }}</p>
+    <p><strong>Локація:</strong> {{ place.location|default:"Secret place👀" }}</p>
+
+    <p><strong>Рейтинг:</strong>
+        <span class="stars">
+            {% for i in "12345"|make_list %}
+                {% if forloop.counter <= place.rating %}
+                    ★
+                {% else %}
+                    ☆
+                {% endif %}
+            {% endfor %}
+        </span>
+    </p>
+
+    <small>Додано: {{ place.created_at }}</small>
+</div>
